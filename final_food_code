@@ -1,0 +1,42 @@
+# final_food_code
+for 1 "minecraft:chicken" == 3 wheat
+turtle.suck( 1 )
+local function chicken()
+ 
+turtle.drop()
+if turtle.inspect() "minecraft:chicken"
+turtle.suck()
+turtle.select( 1 )
+turtle.drop()
+end
+ local function pork()  
+    turtle.inspect() == "minecraft:sugarcane"
+    turtle.suck()
+    for x = 1,6 do
+     turtle.select( 2 )  
+     turtle.drop()
+    end
+   
+   
+      local function steak()
+      for y = 1, 2
+      if turtle.inspect() == y == "minecraft:chicken"
+      turtle.suck()
+      turtle.select( 3 )
+      turtle.drop()
+      end
+     
+          local function egg()
+          for z = 1,2 do
+          if turtle.inspect() == "minecraft:seeds"
+          turtle.suck()
+          turtle.select( 4 )
+          turtle.drop()
+          end
+         
+              local function wheat()
+              for b = 1,1 do
+              if turtle.inspect() == "minecraft:seed" then
+              turtle.suck()
+              turtle.select( 5 )
+              turtle.drop()
