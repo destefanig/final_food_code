@@ -1,3 +1,9 @@
+-- for slot one you will need to insert wheat--
+-- for slot two you will need to insert pork--
+-- for slot 3 you will need to insert chicken--
+-- for slot 4 you will need to insert eggs--
+-- for slot 5 you will need to insert seeds--
+
 # final_food_code
 for 1 "minecraft:chicken" == "minecraft:wheat"
 turtle.suck( 1 )
@@ -22,7 +28,7 @@ local function pork()
     pork()
     
    
-   -- this function will pick up steak if the turtle detects chicken--
+   -- this function will drop up steak if the turtle detects chicken--
       local function steak()
       for y = 1, 2
       if turtle.inspect() == y == "minecraft:chicken"
