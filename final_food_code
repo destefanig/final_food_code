@@ -1,5 +1,5 @@
 # final_food_code
-for 1 "minecraft:chicken" == 3 wheat
+for 1 "minecraft:chicken" == "minecraft:wheat"
 turtle.suck( 1 )
 local function chicken()
  
@@ -9,15 +9,20 @@ turtle.suck()
 turtle.select( 1 )
 turtle.drop()
 end
- local function pork()  
+
+-- this function will pick up a peice of pork and give 6 peices of sugar cane in return--
+local function pork()  
     turtle.inspect() == "minecraft:sugarcane"
     turtle.suck()
     for x = 1,6 do
      turtle.select( 2 )  
      turtle.drop()
     end
+    
+    pork()
+    
    
-   
+   -- this function will pick up steak if the turtle detects chicken--
       local function steak()
       for y = 1, 2
       if turtle.inspect() == y == "minecraft:chicken"
@@ -25,7 +30,11 @@ end
       turtle.select( 3 )
       turtle.drop()
       end
+      
+      steak()
+      
      
+     -- this function will drop and egg given that the turtle detects seeds--
           local function egg()
           for z = 1,2 do
           if turtle.inspect() == "minecraft:seeds"
@@ -33,10 +42,19 @@ end
           turtle.select( 4 )
           turtle.drop()
           end
-         
+          
+          egg()
+          
+         --this function will make the turtle drop wheat given that there is a seed in front of the turtle--
               local function wheat()
               for b = 1,1 do
               if turtle.inspect() == "minecraft:seed" then
               turtle.suck()
               turtle.select( 5 )
               turtle.drop()
+              
+              end
+              
+             
+             wheat()
+             
