@@ -1,69 +1,96 @@
 -- this code will allow you to trade food for other kinds of foods--
 --you will have to insert a certain kind of food in each slot--
-
+ 
 -- for slot one you will need to insert wheat--
 -- for slot two you will need to insert pork--
 -- for slot 3 you will need to insert chicken--
 -- for slot 4 you will need to insert eggs--
 -- for slot 5 you will need to insert seeds--
-
-# final_food_code
-for 1 "minecraft:chicken" == "minecraft:wheat"
-turtle.suck( 1 )
-local function chicken()
  
-turtle.drop()
-if turtle.inspect() "minecraft:chicken"
-turtle.suck()
-turtle.select( 1 )
-turtle.drop()
-end
-
--- this function will pick up a peice of pork and give 6 peices of sugar cane in return--
-local function pork()  
-    turtle.inspect() == "minecraft:sugarcane"
-    turtle.suck()
-    for x = 1,6 do
-     turtle.select( 2 )  
-     turtle.drop()
-    end
-    
-    pork()
-    
+ 
+ 
    
+     -- turtle.inspect does not work here anymore, i need to chnage it ot the special one--
+local bool, stuff = turtle.inspect()
+ 
+function itemcheck()
+  turtle.suck()
+  stuff = turtle.getItemDetail(6)
+end
+ 
+ 
+ 
+function chicken()
+  itemcheck()
+if stuff.name == "minecraft:chicken" then
+ turtle.suck()
+ turtle.select( 1 )
+ turtle.drop()
+end
+end
+ 
+chicken()
+-- for this function to work you need sugar cane in the chest--
+-- for this function to work you need to put seeds--
+-- this function will pick up a peice of pork and give 6 peices of sugar cane in return--
+ function pork()  
+ 
+  if  stuff.name == "minecraft:sugarcane" then
+    turtle.suck()
+  end
+     for x = 1,6 do
+    turtle.select( 2 )  
+    turtle.drop()
+ 
+  end
+  end
+    pork()
+   
+   -- for this function to work you need to to have achicken in the chest--
+   -- for this function to work you need steak in the turtle--
    -- this function will drop up steak if the turtle detects chicken--
-      local function steak()
-      for y = 1, 2
-      if turtle.inspect() == y == "minecraft:chicken"
-      turtle.suck()
-      turtle.select( 3 )
-      turtle.drop()
+       function steak()
+      for y = 1, 2 do
+      if stuff.name == "minecraft:chicken" then
+       turtle.suck()
+       turtle.select( 3 )
+       turtle.drop()
       end
-      
+       end
+       end  
       steak()
-      
      
-     -- this function will drop and egg given that the turtle detects seeds--
-          local function egg()
-          for z = 1,2 do
-          if turtle.inspect() == "minecraft:seeds"
-          turtle.suck()
-          turtle.select( 4 )
-          turtle.drop()
-          end
-          
-          egg()
-          
-         --this function will make the turtle drop wheat given that there is a seed in front of the turtle--
-              local function wheat()
-              for b = 1,1 do
-              if turtle.inspect() == "minecraft:seed" then
+     
+      -- for this function to work you need to insert eggs and make sure you put seeds in the chest--
+      -- this function will drop and egg given that the turtle detects seeds--
+           function egg()
+       
+            if stuff.name == "minecraft:wheat_seeds"then
               turtle.suck()
-              turtle.select( 5 )
+            end
+               turtle.select( 4 )
               turtle.drop()
-              
-              end
-              
+           
+         
+         
+           end
+            egg()
+         
+--this function will make the turtle drop wheat given that there is a seed in front of the turtle--
+--this function will require putting seeds--
+       function wheat()
+             
+             
+                if stuff.name == "minecraft:seed" then
+                  turtle.suck()
+                end
+                   turtle.select( 5 )
+                  turtle.drop()
+                end
+             
+             
+       
+             
              
              wheat()
              
